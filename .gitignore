@@ -1,0 +1,28 @@
+### Project files
+/*-objects/*/src/*/java/*
+!/*-objects/*/src/*/java/e_*
+!/*-objects/*/src/*/java/p_*
+!/*-objects/*/src/*/java/utils/
+!/*-objects/*/src/*/java/ArrayUtils/
+/*-objects/*/src/*/java/e_*NC
+/*-objects/*/src/*/java/p_*NC
+*.pdf
+
+### Gradle template
+.gradle
+/*/*/build/
+/build/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+### Idea template
+.idea/
+*.iws
+/out/
+.idea_modules/
+atlassian-ide-plugin.xml
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties

@@ -1,0 +1,5 @@
+* text=auto
+gradlew.bat text eol=crlf
+babynames.txt text eol=crlf
+alice30.txt text eol=crlf
+war-and-peace.txt text eol=crlf
