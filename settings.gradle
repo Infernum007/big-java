@@ -1,0 +1,28 @@
+rootProject.name = 'big-java'
+
+// Goes through directory structure,finds all directories
+// that contain build.gradle and adds them as subprojects.
+//fileTree('.') {
+//    include '**/build.gradle'
+//    exclude 'build.gradle' // Exclude the root build file.
+//}.collect { relativePath(it.parent).replace(File.separator, ':') }
+//    .each { include(it) }
+
+include 'early-objects:02-using-objects'
+include 'early-objects:03-implementing-classes'
+include 'early-objects:10-interfaces'
+include 'early-objects:16-basic-data-structures'
+include 'early-objects:18-generic-classes'
+
+include 'late-objects:01-introduction'
+include 'late-objects:02-fundamental-data-types'
+include 'late-objects:03-decisions'
+include 'late-objects:04-loops'
+include 'late-objects:05-methods'
+include 'late-objects:06-arrays-and-array-lists'
+include 'late-objects:07-input-output-and-exception-handling'
+include 'late-objects:08-objects-and-classes'
+include 'late-objects:09-inheritance-and-interfaces'
+include 'late-objects:13-recursion'
+include 'late-objects:14-sorting-and-searching'
+include 'late-objects:15-the-java-collections-framework'

@@ -1,0 +1,20 @@
+allprojects {
+    group 'tutorials'
+    version '1.0-SNAPSHOT'
+}
+
+subprojects {
+    if (name == 'early-objects' || name == 'late-objects') {
+        return
+    }
+
+    apply plugin: 'java'
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
+}
