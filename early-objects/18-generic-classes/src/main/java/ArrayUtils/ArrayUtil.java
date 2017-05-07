@@ -33,9 +33,9 @@ public class ArrayUtil
      * @param i the first position to swap
      * @param j the second position to swap
      */
-    public static void swap(int[] a, int i, int j)
+    public static <T> void swap(T[] a, int i, int j)
     {
-        int temp = a[i];
+        T temp = a[i];
         a[i] = a[j];
         a[j] = temp;
     }
