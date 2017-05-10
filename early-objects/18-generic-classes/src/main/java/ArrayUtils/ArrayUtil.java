@@ -1,5 +1,6 @@
 package ArrayUtils;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -38,5 +39,22 @@ public class ArrayUtil
         T temp = a[i];
         a[i] = a[j];
         a[j] = temp;
+    }
+
+    /**
+     * Gets the ordered sequence of integers.
+     *
+     * @param start the first number in the list
+     * @param end the last number in the list
+     * @return ordered array list of integers
+     */
+    public static ArrayList<Integer> sequenceOfNumbers(int start, int end)
+    {
+        ArrayList<Integer> result = new ArrayList<>();
+        for (int i = start; i < end; i++)
+        {
+            result.add(i);
+        }
+        return result;
     }
 }
