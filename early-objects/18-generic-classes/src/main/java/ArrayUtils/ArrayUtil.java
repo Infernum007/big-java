@@ -57,4 +57,15 @@ public class ArrayUtil
         }
         return result;
     }
+
+    public static ArrayList<String> sequenceOfStrings(char start, char end)
+    {
+        ArrayList<String> result = new ArrayList<>();
+        for (char i = start; i < end; i++)
+        {
+            String s = String.valueOf(i);
+            result.add(s);
+        }
+        return result;
+    }
 }
