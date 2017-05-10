@@ -1,11 +1,12 @@
 package e_18_10_hashMap;
 
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.Set;
 
 /**
- * {@code HashMapDemo} class.
+ * Provide suitable {@code hashCode} and {@code equals} methods for the
+ * {@code Pair} class of Section 18.2 and implement a {@code HashMap} class,
+ * using a {@code HashSet<Pair<K, V>>}.
  */
 public class HashMapDemo
 {
