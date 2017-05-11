@@ -29,13 +29,13 @@ public class Data
      */
     public static <T> T max(T[] values, Measurer<T> meas)
     {
-        T maxRectangle = values[0];
-        for (T o : values)
+        T maxObject = values[0];
+        for (T obj : values)
         {
-            if (meas.measure(o) > meas.measure(maxRectangle)) {
-                maxRectangle = o;
+            if (meas.measure(obj) > meas.measure(maxObject)) {
+                maxObject = obj;
             }
         }
-        return maxRectangle;
+        return maxObject;
     }
 }
