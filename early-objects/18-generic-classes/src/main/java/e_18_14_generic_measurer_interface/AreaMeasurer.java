@@ -5,12 +5,11 @@ import java.awt.*;
 /**
  * Objects of this class measure rectangles by area.
  */
-public class AreaMeasurer<T> implements Measurer<T>
+public class AreaMeasurer implements Measurer<Rectangle>
 {
     @Override
-    public double measure(T anObject)
+    public double measure(Rectangle anObject)
     {
-        Rectangle rectangle = (Rectangle) anObject;
-        return rectangle.getWidth() * rectangle.getHeight();
+        return anObject.getWidth() * anObject.getHeight();
     }
 }

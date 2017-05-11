@@ -18,7 +18,7 @@ public class MeasurerTester
                 new Rectangle(20, 30, 5, 15)
         };
 
-        Measurer<Rectangle> areaMeas = new AreaMeasurer<>();
+        Measurer<Rectangle> areaMeas = new AreaMeasurer();
 
         // Measure the average area of the objects
         double averageArea = Data.average(rects, areaMeas);
@@ -41,7 +41,7 @@ public class MeasurerTester
         };
 
         // Measure total average value of bank accounts
-        Measurer<BankAccount> accountMeas = new BankAccountBalanceMeasurer<>();
+        Measurer<BankAccount> accountMeas = new BankAccountBalanceMeasurer();
         double avarageAccountValue = Data.average(accounts, accountMeas);
         System.out.println("Average account value: " + avarageAccountValue);
         System.out.println("Expected average account value: 17.372");
