@@ -8,9 +8,9 @@
 
 [Chapter 4: Loops](https://github.com/ifqthenp/big-java/tree/master/late-objects/04-loops)
 
-[Chapter 5: Loops](https://github.com/ifqthenp/big-java/tree/master/late-objects/05-methods)
+[Chapter 5: Methods](https://github.com/ifqthenp/big-java/tree/master/late-objects/05-methods)
 
-[Chapter 6: Loops](https://github.com/ifqthenp/big-java/tree/master/late-objects/06-array-and-array-lists)
+[Chapter 6: Arrays and Array Lists](https://github.com/ifqthenp/big-java/tree/master/late-objects/06-arrays-and-array-lists)
 
 ### Big Java: Early Objects
 
