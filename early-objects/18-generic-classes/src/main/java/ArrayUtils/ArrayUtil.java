@@ -28,6 +28,23 @@ public class ArrayUtil
     }
 
     /**
+     * Creates an array list filled with random values.
+     *
+     * @param length the length of an array
+     * @param n      the number of possible random values
+     * @return an array filled with length numbers between 0 and n - 1
+     */
+    public static ArrayList<Integer> randomSequenceOfNumbers(int length, int n)
+    {
+        ArrayList<Integer> a = new ArrayList<>(length);
+        for (int i = 0; i < length; i++)
+        {
+            a.add(generator.nextInt(n));
+        }
+        return a;
+    }
+
+    /**
      * Swaps two entries of an array.
      *
      * @param a the array
