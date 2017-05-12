@@ -62,7 +62,7 @@ public class ArrayUtil
      * Gets the ordered sequence of integers.
      *
      * @param start the first number in the list
-     * @param end the last number in the list
+     * @param end   the last number in the list
      * @return ordered array list of integers
      */
     public static ArrayList<Integer> sequenceOfNumbers(int start, int end)
@@ -75,6 +75,13 @@ public class ArrayUtil
         return result;
     }
 
+    /**
+     * Gets lexicographically ordered list of unicode characters as a strings.
+     *
+     * @param start first character
+     * @param end last character
+     * @return lexicographically sorted array list of strings
+     */
     public static ArrayList<String> sequenceOfStrings(char start, char end)
     {
         ArrayList<String> result = new ArrayList<>();
@@ -82,6 +89,25 @@ public class ArrayUtil
         {
             String s = String.valueOf(i);
             result.add(s);
+        }
+        return result;
+    }
+
+    /**
+     * Gets randomized list of unicode characters as a strings.
+     *
+     * @param min minimum desired value of unicode character
+     * @param max maximum desired value of unicode character
+     * @return randomized array list of strings
+     */
+    public static ArrayList<String> randomSequenceOfStrings(int min, int max)
+    {
+        ArrayList<String> result = new ArrayList<>();
+        for (int i = min; i < max; i++)
+        {
+            int ch = generator.nextInt((max - min) + 1) + min;
+            String str = String.valueOf((char) ch);
+            result.add(str);
         }
         return result;
     }
