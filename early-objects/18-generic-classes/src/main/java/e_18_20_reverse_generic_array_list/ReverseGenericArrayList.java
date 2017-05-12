@@ -48,7 +48,7 @@ public class ReverseGenericArrayList
      */
     public static <E> ArrayList<E> reverse(ArrayList<E> a)
     {
-        Objects.requireNonNull(a);
+        Objects.requireNonNull(a, "Array is null");
         int length = a.size();
         if (length == 0) { return a; }
 
