@@ -1,4 +1,4 @@
-package e_18_19_static_reverse_generic_array_list;
+package e_18_19_void_reverse_generic_array_list;
 
 import ArrayUtils.ArrayUtil;
 
