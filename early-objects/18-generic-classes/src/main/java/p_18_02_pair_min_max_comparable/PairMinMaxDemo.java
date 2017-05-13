@@ -5,10 +5,8 @@ import ArrayUtils.ArrayUtil;
 import java.util.Arrays;
 
 /**
- * Write a static generic method {@code PairUtil.minmax} that computes the
- * minimum and maximum elements of an array of type {@code T} and returns
- * a pair containing the minimum and maximum value. Require that the array
- * elements implement the {@code Measurable} interface of Chapter 10.
+ * Repeat Exercise P18.1, but require that the array elements implement
+ * the {@code Comparable} interface.
  */
 public class PairMinMaxDemo
 {
