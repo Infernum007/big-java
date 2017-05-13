@@ -1,4 +1,4 @@
-package p_18_01_pair_min_max;
+package p_18_01_pair_min_max_measurable;
 
 /**
  * Write a static generic method {@code PairUtil.minmax} that computes the

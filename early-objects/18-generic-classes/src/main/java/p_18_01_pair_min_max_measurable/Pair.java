@@ -1,4 +1,4 @@
-package p_18_01_pair_min_max;
+package p_18_01_pair_min_max_measurable;
 
 /**
  * This class collects a pair of elements of same type.

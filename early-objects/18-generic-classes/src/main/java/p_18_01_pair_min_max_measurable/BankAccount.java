@@ -1,4 +1,4 @@
-package p_18_01_pair_min_max;
+package p_18_01_pair_min_max_measurable;
 
 /**
  * A bank account has a balance that can be changed by
