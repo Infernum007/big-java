@@ -24,4 +24,6 @@
 
 [Chapter 18: Generic Classes](https://github.com/ifqthenp/big-java/tree/master/early-objects/18-generic-classes)
 
+[Chapter 19: Stream Processing](https://github.com/ifqthenp/big-java/tree/master/early-objects/19-stream-processing)
+
 
