@@ -13,6 +13,7 @@ include 'early-objects:03-implementing-classes'
 include 'early-objects:10-interfaces'
 include 'early-objects:16-basic-data-structures'
 include 'early-objects:18-generic-classes'
+include 'early-objects:19-stream-processing'
 
 include 'late-objects:01-introduction'
 include 'late-objects:02-fundamental-data-types'
