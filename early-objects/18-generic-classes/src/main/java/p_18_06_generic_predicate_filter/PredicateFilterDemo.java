@@ -8,7 +8,8 @@ import java.util.List;
 import java.util.function.Predicate;
 
 /**
- * Write a static generic method
+ * Using the {@code java.util.function.Predicate} interface,
+ * write a static generic method
  * <blockquote>
  * {@code List<T> filter(List<T> values, Predicate<? super T> p)}
  * </blockquote>
