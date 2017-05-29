@@ -12,6 +12,7 @@ include 'early-objects:02-using-objects'
 include 'early-objects:03-implementing-classes'
 include 'early-objects:10-interfaces'
 include 'early-objects:16-basic-data-structures'
+include 'early-objects:17-tree-structures'
 include 'early-objects:18-generic-classes'
 include 'early-objects:19-stream-processing'
 
