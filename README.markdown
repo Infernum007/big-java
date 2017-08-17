@@ -12,7 +12,7 @@
 
 [Chapter 6: Arrays and Array Lists](https://github.com/ifqthenp/big-java/tree/master/late-objects/06-arrays-and-array-lists)
 
-[Chapter 7: Input/Output and Exception Handling Lists](https://github.com/ifqthenp/big-java/tree/master/late-objects/07-input-output-and-exception-handling/src/main/java)
+[Chapter 7: Input/Output and Exception Handling](https://github.com/ifqthenp/big-java/tree/master/late-objects/07-input-output-and-exception-handling/src/main/java)
 
 ### Big Java: Early Objects
 
