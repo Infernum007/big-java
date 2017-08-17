@@ -12,6 +12,8 @@
 
 [Chapter 6: Arrays and Array Lists](https://github.com/ifqthenp/big-java/tree/master/late-objects/06-arrays-and-array-lists)
 
+[Chapter 7: Input/Output and Exception Handling Lists](https://github.com/ifqthenp/big-java/tree/master/late-objects/07-input-output-and-exception-handling/src/main/java)
+
 ### Big Java: Early Objects
 
 [Chapter 2: Using Objects](https://github.com/ifqthenp/big-java/tree/master/early-objects/02-using-objects)
