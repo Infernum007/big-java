@@ -13,7 +13,6 @@
 /*/*/build/
 /build/
 gradle-app.setting
-!gradle-wrapper.jar
 .gradletasknamecache
 
 ### Idea template
