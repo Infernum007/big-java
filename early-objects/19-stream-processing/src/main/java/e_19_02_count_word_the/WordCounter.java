@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 /**
  * Write a program that reads all words from a file and,
@@ -33,6 +34,7 @@ public class WordCounter
      */
     public long countWords(String pathToFile, String word) throws FileNotFoundException
     {
+        long count;
         Scanner in = new Scanner(new File(pathToFile));
         List<String> wordList = new LinkedList<>();
 
@@ -40,6 +42,9 @@ public class WordCounter
             wordList.add(in.next());
         }
 
-        return wordList.stream().filter(w -> w.contains(word)).count();
+        try (Stream<String> words = wordList.stream()) {
+            count = words.filter(w -> w.contains(word)).count();
+        }
+        return count;
     }
 }
