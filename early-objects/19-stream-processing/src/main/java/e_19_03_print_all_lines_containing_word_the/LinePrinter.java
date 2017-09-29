@@ -23,10 +23,10 @@ public class LinePrinter
     {
         try (Stream<String> lines = Files.lines(Paths.get(path))) {
             lines
-                    .filter(w -> w.matches(".+\\b" + word + "\\b.+"))
-                    .map(String::toLowerCase)
-                    .map(w -> w.replaceAll("\\bthe\\b", "THE"))
-                    .forEach(System.out::println);
+                    .filter(w -> w.matches(".+\\b" + word + "\\b.+"))   // filter lines containing word "the"
+                    .map(String::toLowerCase)                           // convert all lines to lowercase
+                    .map(w -> w.replaceAll("\\bthe\\b", "THE"))         // replace "the" with "THE"
+                    .forEach(System.out::println);                      // print all lines containing word "the"
         }
     }
 }
