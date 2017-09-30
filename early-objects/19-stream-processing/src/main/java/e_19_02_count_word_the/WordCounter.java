@@ -1,10 +1,11 @@
 package e_19_02_count_word_the;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.LinkedList;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Stream;
 
 /**
@@ -13,7 +14,7 @@ import java.util.stream.Stream;
  */
 public class WordCounter
 {
-    public static void main(String[] args) throws FileNotFoundException
+    public static void main(String[] args) throws IOException
     {
         WordCounter wc = new WordCounter();
 
@@ -32,19 +33,15 @@ public class WordCounter
      * @param word       the word to find in the line
      * @return the number of lines containing specific word
      */
-    public long countWords(String pathToFile, String word) throws FileNotFoundException
+    public long countWords(String pathToFile, String word) throws IOException
     {
-        long count;
-        Scanner in = new Scanner(new File(pathToFile));
-        List<String> wordList = new LinkedList<>();
+        String contents = new String(Files.readAllBytes(Paths.get(pathToFile)), StandardCharsets.UTF_8);
+        List<String> words = Arrays.asList(contents.split("\\PL+"));
 
-        while (in.hasNext()) {
-            wordList.add(in.next());
-        }
+        System.out.println(words);
 
-        try (Stream<String> words = wordList.stream()) {
-            count = words.filter(w -> w.contains(word)).count();
+        try (Stream<String> wordStream = words.stream()) {
+            return wordStream.filter(w -> w.equals(word)).count();
         }
-        return count;
     }
 }

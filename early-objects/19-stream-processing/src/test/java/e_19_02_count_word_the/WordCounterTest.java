@@ -25,7 +25,7 @@ public class WordCounterTest
     {
         final String word = "the";
         long wordCount = wc.countWords(path, word);
-        assertEquals(26, wordCount);
+        assertEquals(3, wordCount);
     }
 
     @Test
