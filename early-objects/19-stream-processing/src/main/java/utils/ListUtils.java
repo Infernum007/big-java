@@ -24,7 +24,7 @@ public class ListUtils
         List<String> words = new ArrayList<>();
 
         while (in.hasNext()) {
-            String word = in.next().replaceAll("\\W", "");
+            String word = in.next().replaceAll("([^\\w-]|--)+", "");
             words.add(word);
         }
         return words;
@@ -42,7 +42,7 @@ public class ListUtils
         List<String> words = new LinkedList<>();
 
         while (in.hasNext()) {
-            String word = in.next().replaceAll("\\W", "");
+            String word = in.next().replaceAll("([^\\w-]|--)+", "");
             words.add(word);
         }
         return words;
