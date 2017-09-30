@@ -38,8 +38,6 @@ public class WordCounter
         String contents = new String(Files.readAllBytes(Paths.get(pathToFile)), StandardCharsets.UTF_8);
         List<String> words = Arrays.asList(contents.split("\\PL+"));
 
-        System.out.println(words);
-
         try (Stream<String> wordStream = words.stream()) {
             return wordStream.filter(w -> w.equals(word)).count();
         }
