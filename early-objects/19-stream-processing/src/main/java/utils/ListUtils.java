@@ -1,11 +1,11 @@
 package utils;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Class with utility methods for lists.
@@ -20,14 +20,7 @@ public class ListUtils
      */
     public static List<String> getListOfWordsFromString(String text)
     {
-        Scanner in = new Scanner(text);
-        List<String> words = new ArrayList<>();
-
-        while (in.hasNext()) {
-            String word = in.next().replaceAll("([^\\w-]|--)+", "");
-            words.add(word);
-        }
-        return words;
+        return Arrays.asList(text.split("\\PL+"));
     }
 
     /**
@@ -36,15 +29,12 @@ public class ListUtils
      *
      * @return list of words
      */
-    public static List<String> getListOfWordsFromTextFile(String path) throws FileNotFoundException
+    public static List<String> getListOfWordsFromTextFile(String path) throws IOException
     {
-        Scanner in = new Scanner(new File(path));
-        List<String> words = new LinkedList<>();
-
-        while (in.hasNext()) {
-            String word = in.next().replaceAll("([^\\w-]|--)+", "");
-            words.add(word);
-        }
-        return words;
+        String contents = new String(
+                Files.readAllBytes(Paths.get(path)),
+                StandardCharsets.UTF_8
+        );
+        return Arrays.asList(contents.split("\\PL+"));
     }
 }
