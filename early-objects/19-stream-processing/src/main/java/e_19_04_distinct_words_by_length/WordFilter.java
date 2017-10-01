@@ -2,7 +2,7 @@ package e_19_04_distinct_words_by_length;
 
 import utils.ListUtils;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class WordFilter
 {
-    public static void main(String[] args) throws FileNotFoundException
+    public static void main(String[] args) throws IOException
     {
         String path = "early-objects/19-stream-processing/src/main/resources/alice30.txt";
 
