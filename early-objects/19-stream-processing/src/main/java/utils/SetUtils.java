@@ -1,6 +1,8 @@
 package utils;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Class with utility methods for lists.
@@ -15,13 +17,7 @@ public class SetUtils
      */
     public static Set<String> getSetOfWordsFromString(String text)
     {
-        Scanner in = new Scanner(text);
-        Set<String> words = new HashSet<>();
-
-        while (in.hasNext()) {
-            String word = in.next().replaceAll("\\W", "");
-            words.add(word);
-        }
-        return words;
+        List<String> wordsList = ListUtils.getListOfWordsFromString(text);
+        return new HashSet<>(wordsList);
     }
 }
