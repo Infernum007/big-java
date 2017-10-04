@@ -1,5 +1,6 @@
 ### Project files
 /*-objects/*/src/*/java/*
+/*-objects/*/src/*/groovy/*
 !/*-objects/*/src/*/java/e_*
 !/*-objects/*/src/*/java/p_*
 !/*-objects/*/src/*/java/utils/

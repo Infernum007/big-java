@@ -9,6 +9,8 @@ subprojects {
     }
 
     apply plugin: 'java'
+    apply plugin: 'groovy'
+    apply plugin: 'application'
 
     repositories {
         jcenter()
@@ -16,5 +18,6 @@ subprojects {
 
     dependencies {
         testCompile 'junit:junit:4.12'
+        testCompile "org.spockframework:spock-core:1.1-groovy-2.4"
     }
 }
