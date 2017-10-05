@@ -1,11 +1,16 @@
 ### Project files
-/*-objects/*/src/*/*/*
-!/*-objects/*/src/*/*/e_*
-!/*-objects/*/src/*/*/p_*
-!/*-objects/*/src/*/*/utils/
-!/*-objects/*/src/*/*/ArrayUtils/
-/*-objects/*/src/*/*/e_*NC
-/*-objects/*/src/*/*/p_*NC
+/*-objects/*/src/*/java/*
+!/*-objects/*/src/*/java/e_*
+!/*-objects/*/src/*/java/p_*
+!/*-objects/*/src/*/java/utils/
+!/*-objects/*/src/*/java/ArrayUtils/
+/*-objects/*/src/*/java/e_*NC
+/*-objects/*/src/*/java/p_*NC
+
+/*-objects/*/src/*/groovy/*
+!/*-objects/*/src/*/groovy/e_*
+!/*-objects/*/src/*/groovy/p_*
+
 *.pdf
 
 ### Gradle template
