@@ -30,8 +30,21 @@ public class CommaSeparatedList
         }
     }
 
+    /**
+     * Turns generic stream into a comma-separated list, type of String.
+     * The list size is limited to a given number {@code n} of stream first
+     * elements supplied as method argument.
+     *
+     * @param stream generic stream
+     * @param n      number of generic objects from the stream to be converted into a list
+     * @param <T>    generic object
+     * @return comma-separated list, type of String
+     */
     public static <T> String toString(Stream<T> stream, int n)
     {
-        return stream.limit(n).map(Object::toString).collect(Collectors.joining(","));
+        return stream
+                .limit(n)
+                .map(Object::toString)
+                .collect(Collectors.joining(","));
     }
 }
