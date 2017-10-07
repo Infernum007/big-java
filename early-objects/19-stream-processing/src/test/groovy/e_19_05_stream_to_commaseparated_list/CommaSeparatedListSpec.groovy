@@ -15,7 +15,7 @@ class CommaSeparatedListSpec extends Specification {
     }
 
     @Unroll
-    def "#cslResult correctly converted to '#result' limited by #limit"() {
+    def "stream correctly converted to '#result' limited by #limit"() {
         when:
         String cslResult = csl.toString(stream, limit)
 
