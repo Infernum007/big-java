@@ -1,4 +1,4 @@
-package e_19_07;
+package e_19_07_replace_string_w_periods;
 
 import utils.ListUtils;
 
