@@ -19,11 +19,7 @@ public class Divisor
 
         Optional<Integer> spd = smallestProperDivisor(n);
 
-        if (spd.isPresent()) {
-            System.out.println(spd.get() + " is the smallest divisor of " + n);
-        } else {
-            System.out.println("No result present");
-        }
+        System.out.println(spd.orElse(-1));
     }
 
     public static Optional<Integer> smallestProperDivisor(int n)
