@@ -21,6 +21,7 @@ gradle-app.setting
 .gradletasknamecache
 
 ### Idea template
+/*-objects/*/out/
 .idea/
 *.iws
 /out/
