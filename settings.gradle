@@ -15,6 +15,7 @@ include 'early-objects:16-basic-data-structures'
 include 'early-objects:17-tree-structures'
 include 'early-objects:18-generic-classes'
 include 'early-objects:19-stream-processing'
+include 'early-objects:24-relational-databases'
 
 include 'late-objects:01-introduction'
 include 'late-objects:02-fundamental-data-types'
