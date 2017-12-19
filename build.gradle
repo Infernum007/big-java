@@ -17,6 +17,9 @@ subprojects {
     }
 
     dependencies {
+        // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+        compile 'mysql:mysql-connector-java:6.0.6'
+
         testCompile 'junit:junit:4.12'
         testCompile "org.spockframework:spock-core:1.1-groovy-2.4"
     }
