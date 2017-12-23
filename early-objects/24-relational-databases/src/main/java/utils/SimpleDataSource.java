@@ -1,13 +1,16 @@
 package utils;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
+import java.util.Scanner;
 
 /**
  * A simple data source for getting database connection.
@@ -42,5 +45,51 @@ public class SimpleDataSource
     public static Connection getConnection() throws SQLException
     {
         return DriverManager.getConnection(url, username, password);
+    }
+
+    public static void createTables() throws FileNotFoundException, SQLException
+    {
+        final String[] sqlCommands = {
+                "early-objects/24-relational-databases/src/main/resources/Customer.sql",
+                "early-objects/24-relational-databases/src/main/resources/Invoice.sql",
+                "early-objects/24-relational-databases/src/main/resources/LineItem.sql",
+                "early-objects/24-relational-databases/src/main/resources/Product.sql"
+        };
+
+        for (final String sqlCommand : sqlCommands) {
+            try (Scanner in = new Scanner(new File(sqlCommand))) {
+                try (Connection conn = SimpleDataSource.getConnection();
+                     Statement stat = conn.createStatement()) {
+                    while (in.hasNextLine()) {
+                        String line = in.nextLine();
+                        stat.execute(line);
+                    }
+                }
+            }
+        }
+    }
+
+    public static void dropTables() throws SQLException
+    {
+        List<String> tableNames = getDatabaseTableNames();
+        try (Connection conn = SimpleDataSource.getConnection();
+             Statement stmt = conn.createStatement()) {
+            for (String tn : tableNames) {
+                stmt.execute("DROP TABLE IF EXISTS bigJavaDB." + tn);
+            }
+        }
+    }
+
+    public static List<String> getDatabaseTableNames() throws SQLException
+    {
+        List<String> tableNames = new ArrayList<>();
+        try (Connection conn = getConnection()) {
+            DatabaseMetaData meta = conn.getMetaData();
+            ResultSet mrs = meta.getTables(null, null, "%", new String[]{"TABLE"});
+            while (mrs.next()) {
+                tableNames.add(mrs.getString(3));
+            }
+        }
+        return tableNames;
     }
 }
