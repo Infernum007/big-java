@@ -16,6 +16,8 @@
 
 [Chapter 8: Objects and Classes](https://github.com/ifqthenp/big-java/tree/master/late-objects/08-objects-and-classes/src/main/java)
 
+[Chapter 9: Inheritance and Interfaces](https://github.com/ifqthenp/big-java/tree/master/late-objects/09-inheritance-and-interfaces)
+
 ### Big Java: Early Objects
 
 [Chapter 2: Using Objects](https://github.com/ifqthenp/big-java/tree/master/early-objects/02-using-objects)
