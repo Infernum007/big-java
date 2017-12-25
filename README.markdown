@@ -18,6 +18,8 @@
 
 [Chapter 9: Inheritance and Interfaces](https://github.com/ifqthenp/big-java/tree/master/late-objects/09-inheritance-and-interfaces)
 
+[Chapter 13: Recursion](https://github.com/ifqthenp/big-java/tree/master/late-objects/13-recursion)
+
 ### Big Java: Early Objects
 
 [Chapter 2: Using Objects](https://github.com/ifqthenp/big-java/tree/master/early-objects/02-using-objects)
