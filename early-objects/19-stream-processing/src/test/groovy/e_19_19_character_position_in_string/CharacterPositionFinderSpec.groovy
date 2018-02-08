@@ -14,18 +14,30 @@ class CharacterPositionFinderSpec extends Specification {
     def "FunctionalPositionFinder returns a list of all positions of a given character in a string"() {
         setup:
         String string = "Alice's Adventures in Wonderland"
-        Character character = "A"
 
         expect:
-        finder.functionalPositionFinder(string, character) == [0, 8]
+        finder.functionalPositionFinder(string, character) == result
+
+        where:
+        character         || result
+        'A' as Character  || [0, 8]
+        'a' as Character  || [29]
+        'l' as Character  || [1, 28]
+        '\'' as Character || [5]
     }
 
     def "IterativePositionFinder returns a list of all positions of a given character in a string"() {
         setup:
         String string = "Alice's Adventures in Wonderland"
-        Character character = "A"
 
         expect:
-        finder.iterativePositionFinder(string, character) == [0, 8]
+        finder.iterativePositionFinder(string, character) == result
+
+        where:
+        character         || result
+        'A' as Character  || [0, 8]
+        'a' as Character  || [29]
+        'l' as Character  || [1, 28]
+        '\'' as Character || [5]
     }
 }
