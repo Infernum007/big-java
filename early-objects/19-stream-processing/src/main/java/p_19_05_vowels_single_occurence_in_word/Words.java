@@ -16,6 +16,8 @@ import static utils.TextFilePaths.WORDS;
  */
 public class Words
 {
+    private static final int VOWEL_CODEPOINT_SUM = 531;
+
     public static void main(String[] args) throws IOException
     {
         try (Stream<String> lines = Files.lines(Paths.get(WORDS.toString()))) {
@@ -33,7 +35,7 @@ public class Words
     {
         return word.toLowerCase().codePoints()
                 .filter(c -> c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
-                .sum() == 531; // 531 is a total sum of vowels' codepoints
+                .sum() == VOWEL_CODEPOINT_SUM;
     }
 
     public static boolean hasFiveVowels(final String word)
