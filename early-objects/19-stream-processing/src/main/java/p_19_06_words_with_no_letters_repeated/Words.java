@@ -47,7 +47,7 @@ public class Words
                 .length() == word.length();
     }
 
-    public static boolean hasNoRepeatedLetter(final String word)
+    public static boolean hasNoRepeatedLetterUsingSet(final String word)
     {
         return word.toLowerCase().codePoints()
                 .mapToObj(c -> (char) c)
