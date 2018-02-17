@@ -16,6 +16,10 @@ import static utils.TextFilePaths.WORDS;
  */
 public class Words
 {
+    /**
+     * The sum of five unique vowel codepoints.
+     * Equal to {@code 'a' + 'e' + 'i' + 'o' + 'u'}.
+     */
     private static final int VOWEL_CODEPOINT_SUM = 531;
 
     public static void main(String[] args) throws IOException
