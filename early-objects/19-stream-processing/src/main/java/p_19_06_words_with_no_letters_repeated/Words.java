@@ -41,8 +41,8 @@ public class Words
         return word.toLowerCase().codePoints()
                 .distinct()
                 .collect(StringBuilder::new,
-                        StringBuilder::appendCodePoint,
-                        StringBuilder::append)
+                         StringBuilder::appendCodePoint,
+                         StringBuilder::append)
                 .toString()
                 .length() == word.length();
     }
