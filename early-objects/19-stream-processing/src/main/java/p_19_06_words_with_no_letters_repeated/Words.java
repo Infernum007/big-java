@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -33,9 +32,9 @@ public class Words
 
     public static boolean hasNoRepeatedLetter(final String word)
     {
-        Set<Character> charSet = word.toLowerCase().codePoints()
+        return word.toLowerCase().codePoints()
                 .mapToObj(c -> (char) c)
-                .collect(Collectors.toSet());
-        return charSet.size() == word.length();
+                .collect(Collectors.toSet())
+                .size() == word.length();
     }
 }
