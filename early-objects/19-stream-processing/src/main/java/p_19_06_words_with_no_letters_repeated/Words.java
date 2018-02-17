@@ -3,9 +3,9 @@ package p_19_06_words_with_no_letters_repeated;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static utils.TextFilePaths.WORDS;
