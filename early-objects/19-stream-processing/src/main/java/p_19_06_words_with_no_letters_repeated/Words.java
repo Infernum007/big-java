@@ -21,13 +21,19 @@ public class Words
         try (Stream<String> lines = Files.lines(Paths.get(WORDS.toString()))) {
             List<String> list = lines
                     .filter(w -> !w.endsWith("'s"))
-                    .filter(Words::hasNoRepeatedLetter)
+                    .filter(Words::hasNoRepeatedLetterUsingIntStream)
                     .filter(w -> w.length() >= 13)
                     .collect(Collectors.toList());
 
             list.forEach(System.out::println);
             System.out.println("List size = " + list.size());
         }
+    }
+
+    public static boolean hasNoRepeatedLetterUsingIntStream(final String word)
+    {
+        return word.toLowerCase().codePoints().distinct().sum()
+                == word.toLowerCase().codePoints().sum();
     }
 
     public static boolean hasNoRepeatedLetterUsingString(final String word)
