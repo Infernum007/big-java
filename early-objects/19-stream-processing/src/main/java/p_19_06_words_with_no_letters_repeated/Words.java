@@ -30,6 +30,17 @@ public class Words
         }
     }
 
+    public static boolean hasNoRepeatedLetterUsingString(final String word)
+    {
+        return word.toLowerCase().codePoints()
+                .distinct()
+                .collect(StringBuilder::new,
+                        StringBuilder::appendCodePoint,
+                        StringBuilder::append)
+                .toString()
+                .length() == word.length();
+    }
+
     public static boolean hasNoRepeatedLetter(final String word)
     {
         return word.toLowerCase().codePoints()
