@@ -20,7 +20,7 @@ public class Movies
 
         try (Stream<Movie> movies = movieList.stream()) {
             Map<String, Long> result = movies
-                    .map(movie -> movie.getTitle().split(" "))
+                    .map(movie -> movie.getTitle().split("\\s+"))
                     .collect(Collectors.groupingBy(m -> m[0], Collectors.counting()))
                     .entrySet().stream()
                     .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
