@@ -20,6 +20,8 @@
 
 [Chapter 13: Recursion](https://github.com/ifqthenp/big-java/tree/master/late-objects/13-recursion)
 
+[Chapter 14: Sorting and Searching](https://github.com/ifqthenp/big-java/tree/master/late-objects/14-sorting-and-searching)
+
 ### Big Java: Early Objects
 
 [Chapter 2: Using Objects](https://github.com/ifqthenp/big-java/tree/master/early-objects/02-using-objects)
