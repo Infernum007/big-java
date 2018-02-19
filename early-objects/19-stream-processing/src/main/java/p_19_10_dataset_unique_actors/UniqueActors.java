@@ -42,8 +42,8 @@ public class UniqueActors
                     .flatMap(movie -> movie.getActors().stream().parallel())
                     .collect(HashSet::new, HashSet::add, HashSet::addAll);
 
-            System.out.printf("Size: %d%n", actors.size());
             actors.forEach(System.out::println);
+            System.out.printf("Number of unique actors: %,d%n", actors.size());
         }
     }
 
