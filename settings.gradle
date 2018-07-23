@@ -16,6 +16,7 @@ include 'early-objects:17-tree-structures'
 include 'early-objects:18-generic-classes'
 include 'early-objects:19-stream-processing'
 include 'early-objects:21-advanced-input-output'
+include 'early-objects:22-multithreading'
 include 'early-objects:24-relational-databases'
 
 include 'late-objects:01-introduction'
