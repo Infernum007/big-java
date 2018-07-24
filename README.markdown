@@ -36,4 +36,6 @@
 
 [Chapter 19: Stream Processing](https://github.com/ifqthenp/big-java/tree/master/early-objects/19-stream-processing)
 
+[Chapter 22: Multithreading](https://github.com/ifqthenp/big-java/tree/master/early-objects/22-multithreading)
+
 [Chapter 24: Relational Databases](https://github.com/ifqthenp/big-java/tree/master/early-objects/24-relational-databases)
