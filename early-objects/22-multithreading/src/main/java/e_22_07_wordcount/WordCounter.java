@@ -56,7 +56,7 @@ public class WordCounter implements Runnable
     public void run()
     {
         try {
-            LOGGER.log(Level.INFO, "Running in " + Thread.currentThread().getName());
+            LOGGER.log(Level.INFO, fileName + " running in " + Thread.currentThread().getName());
             URL path = WordCounter.class.getClassLoader().getResource(fileName);
             long result = this.countWords(path);
             System.out.printf("%-17s | %d%n", fileName, result);
