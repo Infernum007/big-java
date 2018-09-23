@@ -4,10 +4,9 @@ package e_22_02_stack_as_linkedList;
  * Implement a stack as a linked list in which the {@code push}, {@code pop},
  * and {@code isEmpty} methods can be safely accessed from multiple threads.
  */
-public class MySafeStackThreadRunner
-{
-    public static void main(String[] args)
-    {
+public class MySafeStackThreadRunner {
+
+    public static void main(String[] args) {
         final MySafeStack<Integer> stack = new MySafeStackImpl<>();
         final int REPETITIONS = 100;
         final int THREADS = 100;
@@ -31,4 +30,5 @@ public class MySafeStackThreadRunner
             System.out.println(stack.toString());
         }
     }
+
 }
