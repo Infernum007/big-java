@@ -3,11 +3,10 @@ package e_22_06_array_list;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ArrayListRunnableDemo
-{
-    public static void main(String[] args)
-    {
-        Object[] staffNames = { "Anna", "James", "Michael", "Tony" };
+public class ArrayListRunnableDemo {
+
+    public static void main(String[] args) {
+        Object[] staffNames = {"Anna", "James", "Michael", "Tony"};
         Lock theLock = new ReentrantLock();
         ArrayList staff = new ArrayList(staffNames, theLock);
 
@@ -33,4 +32,5 @@ public class ArrayListRunnableDemo
 
         System.out.println(staff.toString());
     }
+
 }

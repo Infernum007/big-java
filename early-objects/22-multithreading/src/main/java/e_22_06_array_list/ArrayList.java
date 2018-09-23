@@ -6,8 +6,8 @@ import java.util.concurrent.locks.Lock;
  * Modify the {@code ArrayList} implementation of Section 16.2 so that all
  * methods can be safely accessed from multiple threads.
  */
-public class ArrayList
-{
+public class ArrayList {
+
     private Object[] elements;
     private int currentSize;
     private Lock theLock;
@@ -15,8 +15,7 @@ public class ArrayList
     /**
      * Constructs an empty array list.
      */
-    public ArrayList(final Object[] elements, final Lock aLock)
-    {
+    public ArrayList(final Object[] elements, final Lock aLock) {
         this.elements = elements;
         this.currentSize = this.elements.length;
         this.theLock = aLock;
@@ -27,13 +26,11 @@ public class ArrayList
      *
      * @return the size
      */
-    public int size()
-    {
+    public int size() {
         theLock.lock();
         try {
             return currentSize;
-        }
-        finally {
+        } finally {
             theLock.unlock();
         }
     }
@@ -43,8 +40,7 @@ public class ArrayList
      *
      * @param n the index to check
      */
-    private void checkBounds(int n)
-    {
+    private void checkBounds(int n) {
         if (n < 0 || n >= currentSize) {
             throw new IndexOutOfBoundsException();
         }
@@ -56,14 +52,12 @@ public class ArrayList
      * @param pos the position
      * @return the element at pos
      */
-    public Object get(int pos)
-    {
+    public Object get(int pos) {
         theLock.lock();
         try {
             checkBounds(pos);
             return elements[pos];
-        }
-        finally {
+        } finally {
             theLock.unlock();
         }
     }
@@ -74,14 +68,12 @@ public class ArrayList
      * @param pos     the position
      * @param element the new value
      */
-    public void set(int pos, Object element)
-    {
+    public void set(int pos, Object element) {
         theLock.lock();
         try {
             checkBounds(pos);
             elements[pos] = element;
-        }
-        finally {
+        } finally {
             theLock.unlock();
         }
     }
@@ -92,8 +84,7 @@ public class ArrayList
      * @param pos the position
      * @return the removed element
      */
-    public Object remove(int pos)
-    {
+    public Object remove(int pos) {
         theLock.lock();
         try {
             checkBounds(pos);
@@ -103,8 +94,7 @@ public class ArrayList
             }
             currentSize--;
             return removed;
-        }
-        finally {
+        } finally {
             theLock.unlock();
         }
     }
@@ -115,8 +105,7 @@ public class ArrayList
      * @param pos        the position
      * @param newElement the element to add
      */
-    public boolean add(int pos, Object newElement)
-    {
+    public boolean add(int pos, Object newElement) {
         theLock.lock();
         try {
             growIfNecessary();
@@ -127,8 +116,7 @@ public class ArrayList
             }
             elements[pos] = newElement;
             return true;
-        }
-        finally {
+        } finally {
             theLock.unlock();
         }
     }
@@ -138,16 +126,14 @@ public class ArrayList
      *
      * @param newElement the element to add
      */
-    public boolean addLast(Object newElement)
-    {
+    public boolean addLast(Object newElement) {
         theLock.lock();
         try {
             growIfNecessary();
             currentSize++;
             elements[currentSize - 1] = newElement;
             return true;
-        }
-        finally {
+        } finally {
             theLock.unlock();
         }
     }
@@ -155,8 +141,7 @@ public class ArrayList
     /**
      * Grows the elements array if the current size equals the capacity.
      */
-    private void growIfNecessary()
-    {
+    private void growIfNecessary() {
         if (currentSize == elements.length) {
             Object[] newElements = new Object[2 * elements.length];
             for (int i = 0; i < elements.length; i++) {
@@ -167,8 +152,7 @@ public class ArrayList
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         theLock.lock();
         try {
             StringBuilder result = new StringBuilder();
@@ -178,9 +162,9 @@ public class ArrayList
                 }
             }
             return result.toString();
-        }
-        finally {
+        } finally {
             theLock.unlock();
         }
     }
+
 }
