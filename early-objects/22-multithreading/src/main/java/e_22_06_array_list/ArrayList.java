@@ -159,11 +159,10 @@ public class ArrayList {
      * Grows the elements array if the current size equals the capacity.
      */
     private void growIfNecessary() {
-        if (currentSize == elements.length) {
-            Object[] newElements = new Object[2 * elements.length];
-            for (int i = 0; i < elements.length; i++) {
-                newElements[i] = elements[i];
-            }
+        final int elementsLength = elements.length;
+        if (this.size() == elementsLength) {
+            final Object[] newElements = new Object[2 * elementsLength];
+            System.arraycopy(elements, 0, newElements, 0, elementsLength);
             elements = newElements;
         }
     }
