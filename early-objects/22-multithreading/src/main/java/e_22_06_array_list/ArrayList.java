@@ -36,17 +36,6 @@ public class ArrayList {
     }
 
     /**
-     * Throws an IndexOutOfBoundsException if the checked index is out of bounds
-     *
-     * @param n the index to check
-     */
-    private void checkBounds(int n) {
-        if (n < 0 || n >= currentSize) {
-            throw new IndexOutOfBoundsException();
-        }
-    }
-
-    /**
      * Gets the element at a given position.
      *
      * @param pos the position
@@ -138,19 +127,6 @@ public class ArrayList {
         }
     }
 
-    /**
-     * Grows the elements array if the current size equals the capacity.
-     */
-    private void growIfNecessary() {
-        if (currentSize == elements.length) {
-            Object[] newElements = new Object[2 * elements.length];
-            for (int i = 0; i < elements.length; i++) {
-                newElements[i] = elements[i];
-            }
-            elements = newElements;
-        }
-    }
-
     @Override
     public String toString() {
         theLock.lock();
@@ -164,6 +140,30 @@ public class ArrayList {
             return result.toString();
         } finally {
             theLock.unlock();
+        }
+    }
+
+    /**
+     * Grows the elements array if the current size equals the capacity.
+     */
+    private void growIfNecessary() {
+        if (currentSize == elements.length) {
+            Object[] newElements = new Object[2 * elements.length];
+            for (int i = 0; i < elements.length; i++) {
+                newElements[i] = elements[i];
+            }
+            elements = newElements;
+        }
+    }
+
+    /**
+     * Throws an IndexOutOfBoundsException if the checked index is out of bounds
+     *
+     * @param n the index to check
+     */
+    private void checkBounds(int n) {
+        if (n < 0 || n >= currentSize) {
+            throw new IndexOutOfBoundsException();
         }
     }
 
