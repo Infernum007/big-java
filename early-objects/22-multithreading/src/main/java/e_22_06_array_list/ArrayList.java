@@ -17,7 +17,7 @@ public class ArrayList {
      */
     public ArrayList(final Object[] elements, final Lock aLock) {
         this.elements = elements;
-        this.currentSize = this.elements.length;
+        this.currentSize = elements.length;
         this.theLock = aLock;
     }
 
