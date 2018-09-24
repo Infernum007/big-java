@@ -1,6 +1,8 @@
 package e_22_06_array_list;
 
+import java.util.Arrays;
 import java.util.concurrent.locks.Lock;
+import java.util.stream.Collectors;
 
 /**
  * Modify the {@code ArrayList} implementation of Section 16.2 so that all
@@ -131,13 +133,9 @@ public class ArrayList {
     public String toString() {
         theLock.lock();
         try {
-            StringBuilder result = new StringBuilder();
-            for (final Object s : elements) {
-                if (s != null) {
-                    result.append(s.toString()).append(", ");
-                }
-            }
-            return result.toString();
+            return Arrays.stream(this.elements, 0, this.size())
+                    .map(Object::toString)
+                    .collect(Collectors.joining(", ", "[", "]"));
         } finally {
             theLock.unlock();
         }
