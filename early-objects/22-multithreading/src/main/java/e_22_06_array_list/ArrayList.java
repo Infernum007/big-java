@@ -118,10 +118,10 @@ public class ArrayList {
      * @param newElement the element to add
      */
     public boolean addLast(final Object newElement) {
-            growIfNecessary();
+        growIfNecessary();
         incrementCurrentSize(this.size());
         elements[this.size() - 1] = newElement;
-            return true;
+        return true;
     }
 
     @Override
