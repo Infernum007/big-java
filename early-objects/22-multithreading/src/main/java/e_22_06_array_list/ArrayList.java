@@ -10,7 +10,7 @@ public class ArrayList {
 
     private Object[] elements;
     private int currentSize;
-    private Lock theLock;
+    private final Lock theLock;
 
     /**
      * Constructs an empty array list.
@@ -41,7 +41,7 @@ public class ArrayList {
      * @param pos the position
      * @return the element at pos
      */
-    public Object get(int pos) {
+    public Object get(final int pos) {
         theLock.lock();
         try {
             checkBounds(pos);
@@ -57,7 +57,7 @@ public class ArrayList {
      * @param pos     the position
      * @param element the new value
      */
-    public void set(int pos, Object element) {
+    public void set(final int pos, final Object element) {
         theLock.lock();
         try {
             checkBounds(pos);
@@ -73,7 +73,7 @@ public class ArrayList {
      * @param pos the position
      * @return the removed element
      */
-    public Object remove(int pos) {
+    public Object remove(final int pos) {
         theLock.lock();
         try {
             checkBounds(pos);
@@ -94,7 +94,7 @@ public class ArrayList {
      * @param pos        the position
      * @param newElement the element to add
      */
-    public boolean add(int pos, Object newElement) {
+    public boolean add(final int pos, final Object newElement) {
         theLock.lock();
         try {
             growIfNecessary();
@@ -115,7 +115,7 @@ public class ArrayList {
      *
      * @param newElement the element to add
      */
-    public boolean addLast(Object newElement) {
+    public boolean addLast(final Object newElement) {
         theLock.lock();
         try {
             growIfNecessary();
@@ -132,7 +132,7 @@ public class ArrayList {
         theLock.lock();
         try {
             StringBuilder result = new StringBuilder();
-            for (Object s : elements) {
+            for (final Object s : elements) {
                 if (s != null) {
                     result.append(s.toString()).append(", ");
                 }
