@@ -142,6 +142,20 @@ public class ArrayList {
     }
 
     /**
+     * Thread safe increment of this array's current size
+     *
+     * @param currentSize the current size of this array
+     */
+    private void incrementCurrentSize(final int currentSize) {
+        theLock.lock();
+        try {
+            this.currentSize = currentSize + 1;
+        } finally {
+            theLock.unlock();
+        }
+    }
+
+    /**
      * Grows the elements array if the current size equals the capacity.
      */
     private void growIfNecessary() {
