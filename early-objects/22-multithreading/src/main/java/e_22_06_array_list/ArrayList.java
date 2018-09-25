@@ -153,6 +153,15 @@ public class ArrayList {
     }
 
     /**
+     * Sets the array.
+     *
+     * @param newElements array of new elements
+     */
+    final void setElements(final Object[] newElements) {
+        elements = newElements;
+    }
+
+    /**
      * Thread safe increment of this array's current size
      *
      * @param currentSize the current size of this array
