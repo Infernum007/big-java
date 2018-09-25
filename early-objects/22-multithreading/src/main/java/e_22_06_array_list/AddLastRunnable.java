@@ -15,9 +15,8 @@ public class AddLastRunnable implements Runnable {
     public void run() {
         try {
             for (int i = 0; i < count; i++) {
-                Object o = "Carl-" + i;
-                boolean added = arrayList.addLast(o);
-                System.out.println("AddLastRunnable.run >>> " + added + " " + o.toString() + " >>> running in " + Thread.currentThread().getName());
+                Object o = i;
+                arrayList.addLast(o);
                 Thread.sleep(DELAY);
             }
         } catch (InterruptedException e) {
