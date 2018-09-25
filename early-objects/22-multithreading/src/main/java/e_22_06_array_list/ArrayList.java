@@ -120,7 +120,7 @@ public class ArrayList {
     public boolean addLast(final Object newElement) {
         theLock.lock();
         try {
-            final Object[] arr = elements;
+            final Object[] arr = getElements();
             int len = arr.length;
             Object[] newArr = Arrays.copyOf(arr, len + 1);
             newArr[len] = newElement;
@@ -135,7 +135,7 @@ public class ArrayList {
     public String toString() {
         theLock.lock();
         try {
-            return Arrays.stream(this.elements, 0, this.size())
+            return Arrays.stream(getElements(), 0, this.size())
                     .map(Object::toString)
                     .collect(Collectors.joining(", ", "[", "]"));
         } finally {
