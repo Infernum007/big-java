@@ -1,6 +1,6 @@
 package e_22_06_array_list
 
-import spock.lang.Shared
+
 import spock.lang.Specification
 
 import java.util.concurrent.locks.Lock
@@ -8,15 +8,12 @@ import java.util.concurrent.locks.ReentrantLock
 
 class ArrayListSpec extends Specification {
 
-    @Shared
     int THREADS = 5
-    @Shared
     int REPETITIONS = 5
-
+    Object[] integers = [1, 2, 3, 4, 5]
     ArrayList arrayList
 
     void setup() {
-        Object[] integers = [1, 2, 3, 4, 5]
         Lock theLock = new ReentrantLock()
         arrayList = new ArrayList(integers, theLock)
     }
@@ -30,7 +27,7 @@ class ArrayListSpec extends Specification {
         Thread.sleep(500)
 
         expect:
-        arrayList.size() == 30
+        arrayList.size() == (THREADS * REPETITIONS + integers.size())
         arrayList.elements.count(count) == result
 
         where:
