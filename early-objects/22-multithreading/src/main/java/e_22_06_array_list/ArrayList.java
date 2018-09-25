@@ -124,7 +124,7 @@ public class ArrayList {
             int len = arr.length;
             Object[] newArr = Arrays.copyOf(arr, len + 1);
             newArr[len] = newElement;
-            elements = newArr;
+            setElements(newArr);
             return true;
         } finally {
             theLock.unlock();
