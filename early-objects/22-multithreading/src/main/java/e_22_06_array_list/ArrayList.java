@@ -1,6 +1,7 @@
 package e_22_06_array_list;
 
 import java.util.Arrays;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.stream.Collectors;
 
@@ -91,7 +92,7 @@ public class ArrayList {
     }
 
     /**
-     * Adds an element after a given position.
+     * Adds an element at a given position.
      *
      * @param pos        the position
      * @param newElement the element to add
@@ -99,13 +100,24 @@ public class ArrayList {
     public boolean add(final int pos, final Object newElement) {
         theLock.lock();
         try {
-            growIfNecessary();
-            currentSize++;
-            checkBounds(pos);
-            for (int i = currentSize - 1; i > pos; i--) {
-                elements[i] = elements[i - 1];
+            final Object[] elements = getElements();
+            int len = elements.length;
+
+            if (pos < 0 || pos > len) {
+                throw new ArrayIndexOutOfBoundsException("pos: " + pos + ", size: " + len);
             }
-            elements[pos] = newElement;
+
+            Object[] newElements;
+            int numMoved = len - pos;
+            if (numMoved == 0) {
+                newElements = Arrays.copyOf(elements, len + 1);
+            } else {
+                newElements = new Object[len + 1];
+                System.arraycopy(elements, 0, newElements, 0, pos);
+                System.arraycopy(elements, pos, newElements, pos + 1, numMoved);
+            }
+            newElements[pos] = newElement;
+            setElements(newElements);
             return true;
         } finally {
             theLock.unlock();
