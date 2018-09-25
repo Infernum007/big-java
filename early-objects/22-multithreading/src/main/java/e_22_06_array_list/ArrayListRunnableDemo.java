@@ -5,10 +5,10 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ArrayListRunnableDemo {
 
-    public static void main(String[] args) {
-        Object[] staffNames = {"Anna", "James", "Michael", "Tony"};
+    public static void main(String[] args) throws InterruptedException {
+        Object[] integers = {1, 2, 3, 4, 5};
         Lock theLock = new ReentrantLock();
-        ArrayList staff = new ArrayList(staffNames, theLock);
+        ArrayList integerList = new ArrayList(integers, theLock);
 
         final int REPETITIONS = 10;
         final int THREADS = 10;

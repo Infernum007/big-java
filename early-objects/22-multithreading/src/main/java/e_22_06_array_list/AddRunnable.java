@@ -15,9 +15,8 @@ public class AddRunnable implements Runnable {
     public void run() {
         try {
             for (int i = 0; i < count; i++) {
-                Object o = "John-" + i;
-                boolean added = arrayList.add(i, o);
-                System.out.println("AddRunnable.run >>> " + added + " " + o.toString() + " >>> running in " + Thread.currentThread().getName());
+                final Object o = i;
+                arrayList.add(i, o);
                 Thread.sleep(DELAY);
             }
         } catch (InterruptedException e) {
