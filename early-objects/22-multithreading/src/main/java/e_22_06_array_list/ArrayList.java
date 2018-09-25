@@ -143,6 +143,11 @@ public class ArrayList {
         }
     }
 
+    /**
+     * Gets the elements. Created mostly for testing purpose.
+     *
+     * @return array of elements
+     */
     final Object[] getElements() {
         return elements;
     }
