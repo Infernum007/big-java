@@ -143,6 +143,10 @@ public class ArrayList {
         }
     }
 
+    final Object[] getElements() {
+        return elements;
+    }
+
     /**
      * Thread safe increment of this array's current size
      *
