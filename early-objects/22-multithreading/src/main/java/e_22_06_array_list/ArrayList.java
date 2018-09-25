@@ -31,7 +31,7 @@ public class ArrayList {
     public int size() {
         theLock.lock();
         try {
-            return currentSize;
+            return elements.length;
         } finally {
             theLock.unlock();
         }
