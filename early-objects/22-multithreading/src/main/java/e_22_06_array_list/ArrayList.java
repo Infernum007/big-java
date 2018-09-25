@@ -118,10 +118,17 @@ public class ArrayList {
      * @param newElement the element to add
      */
     public boolean addLast(final Object newElement) {
-        growIfNecessary();
-        incrementCurrentSize(this.size());
-        elements[this.size() - 1] = newElement;
-        return true;
+        theLock.lock();
+        try {
+            final Object[] arr = elements;
+            int len = arr.length;
+            Object[] newArr = Arrays.copyOf(arr, len + 1);
+            newArr[len] = newElement;
+            elements = newArr;
+            return true;
+        } finally {
+            theLock.unlock();
+        }
     }
 
     @Override
