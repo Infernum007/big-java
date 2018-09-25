@@ -18,6 +18,29 @@ class ArrayListSpec extends Specification {
         arrayList = new ArrayList(integers, theLock)
     }
 
+    def "add() method inserts an element at a given position"() {
+        given:
+        for (x in 1..THREADS) {
+            Thread addThread = new Thread(new AddRunnable(arrayList, REPETITIONS))
+            addThread.start()
+        }
+        Thread.sleep(500)
+
+        expect:
+        arrayList.size() == (THREADS * REPETITIONS + integers.size())
+        arrayList.elements.count(value) == result
+
+        where:
+        value || result
+        0     || 5
+        1     || 6
+        2     || 6
+        3     || 6
+        4     || 6
+        5     || 1
+
+    }
+
     def "addLast() method inserts elements in the end of list"() {
         given:
         for (x in 1..THREADS) {
