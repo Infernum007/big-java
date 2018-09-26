@@ -18,6 +18,18 @@ class ArrayListSpec extends Specification {
         arrayList = new ArrayList(integers, theLock)
     }
 
+    def "remove(int pos) method can remove element at a specified position"() {
+        given:
+        for (x in 1..THREADS) {
+            Thread removeThread = new Thread(new RemoveRunnable(arrayList, REPETITIONS))
+            removeThread.start()
+        }
+        Thread.sleep(500)
+
+        expect:
+        arrayList.size() == 0
+    }
+
     def "add() method inserts an element at a given position"() {
         given:
         for (x in 1..THREADS) {

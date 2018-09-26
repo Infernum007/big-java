@@ -79,13 +79,25 @@ public class ArrayList {
     public Object remove(final int pos) {
         theLock.lock();
         try {
-            checkBounds(pos);
-            Object removed = elements[pos];
-            for (int i = pos + 1; i < currentSize; i++) {
-                elements[i - 1] = elements[i];
+            final Object[] elements = getElements();
+            final int len = elements.length;
+
+            if (pos < 0 || pos > len) {
+                throw new IndexOutOfBoundsException("pos: " + pos + ", len: " + len);
             }
-            currentSize--;
-            return removed;
+
+            Object removedElement = elements[pos];
+
+            int numMoved = len - pos - 1;
+            if (numMoved == 0) {
+                setElements(Arrays.copyOf(elements, len - 1));
+            } else {
+                Object[] newElements = new Object[len - 1];
+                System.arraycopy(elements, 0, newElements, 0, pos);
+                System.arraycopy(elements, pos + 1, newElements, pos, numMoved);
+                setElements(newElements);
+            }
+            return removedElement;
         } finally {
             theLock.unlock();
         }

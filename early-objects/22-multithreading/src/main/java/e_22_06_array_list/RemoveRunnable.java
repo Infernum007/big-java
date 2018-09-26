@@ -18,8 +18,10 @@ public class RemoveRunnable implements Runnable {
     public void run() {
         try {
             for (int i = 0; i < count; i++) {
-                Object o = arrayList.remove(i);
-                System.out.println("RemoveRunnable.run >>> " + o.toString() + " >>> running in " + Thread.currentThread().getName());
+                if (arrayList.size() > 0) {
+                    Object o = arrayList.remove(i);
+                    System.out.println("remove " + arrayList.toString());
+                }
                 Thread.sleep(DELAY);
             }
         } catch (InterruptedException e) {
