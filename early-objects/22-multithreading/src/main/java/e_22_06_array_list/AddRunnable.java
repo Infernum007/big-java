@@ -17,6 +17,7 @@ public class AddRunnable implements Runnable {
             for (int i = 0; i < count; i++) {
                 final Object o = i;
                 arrayList.add(i, o);
+                System.out.println("add    " + arrayList.toString());
                 Thread.sleep(DELAY);
             }
         } catch (InterruptedException e) {

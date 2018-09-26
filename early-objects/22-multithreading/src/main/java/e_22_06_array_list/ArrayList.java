@@ -1,7 +1,6 @@
 package e_22_06_array_list;
 
 import java.util.Arrays;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.stream.Collectors;
 
@@ -30,12 +29,7 @@ public class ArrayList {
      * @return the size
      */
     public int size() {
-        theLock.lock();
-        try {
-            return elements.length;
-        } finally {
-            theLock.unlock();
-        }
+        return getElements().length;
     }
 
     /**
@@ -45,13 +39,17 @@ public class ArrayList {
      * @return the element at pos
      */
     public Object get(final int pos) {
-        theLock.lock();
-        try {
-            checkBounds(pos);
-            return elements[pos];
-        } finally {
-            theLock.unlock();
-        }
+        return get(getElements(), pos);
+    }
+
+    /**
+     * Gets the element at a given position.
+     *
+     * @param pos the position
+     * @return the element at pos
+     */
+    public Object get(Object[] arr, final int pos) {
+        return arr[pos];
     }
 
     /**
@@ -63,8 +61,17 @@ public class ArrayList {
     public void set(final int pos, final Object element) {
         theLock.lock();
         try {
-            checkBounds(pos);
-            elements[pos] = element;
+            Object[] elements = getElements();
+            Object oldValue = get(elements, pos);
+
+            if (oldValue != element) {
+                int len = elements.length;
+                Object[] newElements = Arrays.copyOf(elements, len);
+                newElements[pos] = element;
+                setElements(newElements);
+            } else {
+                setElements(elements);
+            }
         } finally {
             theLock.unlock();
         }
@@ -86,7 +93,7 @@ public class ArrayList {
                 throw new IndexOutOfBoundsException("pos: " + pos + ", len: " + len);
             }
 
-            Object removedElement = elements[pos];
+            Object removedElement = get(elements, pos);
 
             int numMoved = len - pos - 1;
             if (numMoved == 0) {
@@ -157,14 +164,9 @@ public class ArrayList {
 
     @Override
     public String toString() {
-        theLock.lock();
-        try {
-            return Arrays.stream(getElements(), 0, this.size())
-                    .map(Object::toString)
-                    .collect(Collectors.joining(", ", "[", "]"));
-        } finally {
-            theLock.unlock();
-        }
+        return Arrays.stream(getElements(), 0, this.size())
+                .map(Object::toString)
+                .collect(Collectors.joining(", ", "[", "]"));
     }
 
     /**
@@ -183,43 +185,6 @@ public class ArrayList {
      */
     final void setElements(final Object[] newElements) {
         elements = newElements;
-    }
-
-    /**
-     * Thread safe increment of this array's current size
-     *
-     * @param currentSize the current size of this array
-     */
-    private void incrementCurrentSize(final int currentSize) {
-        theLock.lock();
-        try {
-            this.currentSize = currentSize + 1;
-        } finally {
-            theLock.unlock();
-        }
-    }
-
-    /**
-     * Grows the elements array if the current size equals the capacity.
-     */
-    private void growIfNecessary() {
-        final int elementsLength = elements.length;
-        if (this.size() == elementsLength) {
-            final Object[] newElements = new Object[2 * elementsLength];
-            System.arraycopy(elements, 0, newElements, 0, elementsLength);
-            elements = newElements;
-        }
-    }
-
-    /**
-     * Throws an IndexOutOfBoundsException if the checked index is out of bounds
-     *
-     * @param n the index to check
-     */
-    private void checkBounds(int n) {
-        if (n < 0 || n >= currentSize) {
-            throw new IndexOutOfBoundsException();
-        }
     }
 
 }

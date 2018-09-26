@@ -10,27 +10,32 @@ public class ArrayListRunnableDemo {
         Lock theLock = new ReentrantLock();
         ArrayList integerList = new ArrayList(integers, theLock);
 
-        final int REPETITIONS = 10;
-        final int THREADS = 10;
+        final int REPETITIONS = 5;
+        final int THREADS = 5;
 
-        for (int i = 1; i <= THREADS; i++) {
-            AddLastRunnable addLast = new AddLastRunnable(staff, REPETITIONS);
-            AddRunnable add = new AddRunnable(staff, REPETITIONS);
-            RemoveRunnable remove = new RemoveRunnable(staff, REPETITIONS);
-            SetRunnable set = new SetRunnable(staff, REPETITIONS);
+        for (int i = 0; i < THREADS; i++) {
+            AddLastRunnable addLast = new AddLastRunnable(integerList, REPETITIONS);
+            AddRunnable add = new AddRunnable(integerList, REPETITIONS);
+            RemoveRunnable remove = new RemoveRunnable(integerList, REPETITIONS);
+            SetRunnable set = new SetRunnable(integerList, REPETITIONS);
 
             Thread addLastThread = new Thread(addLast);
-            Thread removeThread = new Thread(remove);
             Thread addThread = new Thread(add);
+            Thread removeThread = new Thread(remove);
             Thread setThread = new Thread(set);
 
             addLastThread.start();
-            removeThread.start();
             addThread.start();
+            removeThread.start();
             setThread.start();
+
         }
 
-        System.out.println(staff.toString());
+        Thread toStringThread = new Thread(new ToStringRunnable(integerList));
+        Thread.sleep(1000);
+
+        System.out.print("final  ");
+        toStringThread.start();
     }
 
 }

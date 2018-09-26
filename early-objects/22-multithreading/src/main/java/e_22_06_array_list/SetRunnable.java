@@ -17,9 +17,9 @@ public class SetRunnable implements Runnable {
     public void run() {
         try {
             for (int i = 0; i < count; i++) {
-                Object obj = "Tom-" + i;
+                Object obj = i;
                 arrayList.set(new Random().nextInt(count), obj);
-                System.out.println("SetRunnable.run >>> " + obj.toString() + " >>> running in " + Thread.currentThread().getName());
+                System.out.println("set    " + arrayList.toString());
                 Thread.sleep(DELAY);
             }
         } catch (InterruptedException e) {
